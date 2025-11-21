@@ -1,66 +1,187 @@
-# Blood Bank Management System 🩸
-A modern, robust system for managing all operations of a blood bank — donor records, blood inventory, request management, and more. Built with a clean, responsive UI for both admins and staff.
-## 🚀 Features
-- Donor Management: Register, update & track donor details
-- Blood Inventory: Live tracking of units by blood group & expiry
-- Requests: Process requests & donation matches automatically
-- Search & Filter: Quickly find donors, requests, and blood units
-- Authentication: Secure login for admins & staff
-- Dashboard: Analytics for donations, requests, and inventory
+# 🩸 Blood Bank Management System
+
+A comprehensive full-stack Blood Bank Management System built with React 18, TypeScript, Vite, Tailwind CSS, and Supabase.
+
+## ✨ Features
+
+### 🔐 User Management & Authentication
+- Role-based registration (Donor, Hospital, Blood Bank Organization, Admin)
+- Email + Password authentication with OTP verification
+- JWT session management
+- Password reset flow
+- Multi-device login support
+- Auto-logout on inactivity
+- Profile management with photo upload
+
+### 🩸 Donor Management
+- Complete donor profiles with medical information
+- Blood group and Rh factor tracking
+- Eligibility check system (90-day rule)
+- Automated eligibility reminders
+- Donation history tracking
+- Achievement badge system
+- Downloadable certificates
+
+### 📦 Blood Inventory Management
+- Add blood units with complete tracking
+- Component type management (Whole, RBC, WBC, Plasma, Platelets)
+- Comprehensive testing results
+- Automated expiry management
+- Storage location tracking
+- Stock dashboard with color-coded alerts
+- Barcode support
+
+### 🏥 Blood Request Management
+- Hospital request creation with urgency levels
+- Approval workflow system
+- Automated stock reservation
+- Real-time notifications
+- Fulfillment tracking
+
+### 📅 Campaign Management
+- Blood donation event creation
+- Online donor registration
+- Check-in workflow
+- Campaign analytics
+- Success rate tracking
+
+### 📊 Role-Based Dashboards
+- **Admin**: Complete system oversight
+- **Hospital**: Request management
+- **Donor**: Personal donation tracking
+- **Organization**: Campaign and inventory management
+
+### 📧 Notifications & Alerts
+- Email alerts for all critical events
+- Low stock warnings
+- Expiry alerts
+- Request status updates
+
 ## 🛠️ Tech Stack
-- Frontend: React.js, Vite, Tailwind CSS
-- Backend: Node.js, Express.js
-- Database: MongoDB
-- API: RESTful endpoints
-- Deployment: Render / Vercel
-## ⚡ Getting Started
+
+### Frontend
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **React Router** - Routing
+- **Zustand** - State management
+- **React Query** - Server state
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
+- **Lucide React** - Icons
+
+### Backend
+- **Supabase** - Backend as a Service
+  - PostgreSQL Database
+  - Authentication
+  - Storage
+  - Edge Functions
+  - Row Level Security (RLS)
+
+## 🚀 Getting Started
+
 ### Prerequisites
-- Node.js (v14+)
-- MongoDB URI
-- Git
+- Node.js 18+ and npm
+- Supabase account
+
 ### Installation
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/ayushrathore1/Blood-Bank-Management-System.git
-cd Blood-Bank-Management-System
+git clone https://github.com/GovindJangid75/blood-bank-management-system.git
+cd blood-bank-management-system
 ```
-Install backend dependencies:
+
+2. Install dependencies:
 ```bash
 npm install
 ```
-Go to the frontend directory & install dependencies:
+
+3. Create a `.env` file:
 ```bash
-cd frontend
-npm install
+cp .env.example .env
 ```
-### Environment Variables
-Create a `.env` file in the backend root:
-```text
-PORT=6000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
+
+4. Configure your Supabase credentials in `.env`:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
-For Vite frontend, use `.env` with your API endpoint if needed.
-### Run Locally
-**Backend**
-```bash
-npm start
-```
-**Frontend**
+
+5. Set up the Supabase database:
+   - Run the SQL migration files in `supabase/migrations/`
+   - Deploy Edge Functions from `supabase/functions/`
+
+6. Start the development server:
 ```bash
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173/) in your browser.
-## 👨‍💻 Usage
-- **Admin:** Manage users, donors & overall blood bank operations
-- **Staff:** Add donations, manage requests, view inventory
-- **Donor:** Register & track personal donations
+
+## 📁 Project Structure
+
+```
+src/
+├── components/         # Reusable UI components
+│   ├── auth/          # Authentication components
+│   ├── dashboard/     # Dashboard components
+│   ├── donor/         # Donor management
+│   ├── inventory/     # Blood inventory
+│   ├── requests/      # Request management
+│   ├── campaigns/     # Campaign management
+│   └── ui/            # Common UI components
+├── pages/             # Page components
+├── lib/               # Utilities and configurations
+│   ├── supabase.ts    # Supabase client
+│   └── utils.ts       # Helper functions
+├── store/             # Zustand store
+├── types/             # TypeScript types
+├── hooks/             # Custom React hooks
+└── App.tsx            # Main app component
+
+supabase/
+├── migrations/        # Database migrations
+├── functions/         # Edge functions
+└── config.toml        # Supabase configuration
+```
+
+## 🔒 Security Features
+
+- Row Level Security (RLS) policies
+- Role-based access control (RBAC)
+- JWT authentication
+- Secure password hashing
+- Input validation and sanitization
+- Protected API routes
+
+## 📱 Deployment
+
+### Frontend (Vercel)
+```bash
+npm run build
+# Deploy to Vercel
+```
+
+### Backend (Supabase)
+- Database and Auth are automatically managed
+- Deploy Edge Functions via Supabase CLI
+
 ## 🤝 Contributing
-Pull requests are welcome! Please submit your suggestions or bug reports via Issues. For major updates, discuss first.
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
 ## 📄 License
-Distributed under the MIT License.
-## ✍️ Author
----------
 
-👤 Ayush Rathore [GitHub Profile](https://github.com/ayushrathore1)
+This project is licensed under the MIT License.
 
-👤 Govind Jangid [GitHub Profile](https://github.com/govindjangid75)
+## 👤 Author
+
+**Govind Jangid**
+- GitHub: [@GovindJangid75](https://github.com/GovindJangid75)
+- Portfolio: [govind-jangid.vercel.app](https://govind-jangid.vercel.app)
+
+## 🙏 Acknowledgments
+
+- Supabase for the amazing backend platform
+- React and Vite teams for excellent developer experience
+- Tailwind CSS for beautiful styling utilities
